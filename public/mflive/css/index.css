@@ -1,0 +1,360 @@
+html, body, div, span, applet, object, iframe, 
+h1, h2, h3, h4, h5, h6, p, 
+blockquote, pre, a, abbr, acronym, address, big, 
+cite, code, del, dfn, em, font, img, 
+ins, kbd, q, s, samp, small, strike, 
+strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td, 
+center, u, b, i { 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+    outline: 0; 
+    font-weight: normal; 
+    font-style: normal; 
+    font-size: 100%; 
+    font-family: inherit; 
+    vertical-align: baseline 
+} 
+body { 
+    line-height: 1 
+} 
+:focus { 
+    outline: 0 
+} 
+ol, ul { 
+    list-style: none 
+} 
+table { 
+    border-collapse: collapse; 
+    border-spacing: 0 
+} 
+blockquote:before, blockquote:after, q:before, q:after { 
+    content: “” 
+} 
+blockquote, q { 
+    quotes: “” “” 
+} 
+input, textarea { 
+    margin: 0; 
+    padding: 0 
+} 
+hr { 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+    color: #000; 
+    background-color: #000; 
+    height: 1px 
+}
+
+/*这里开始*/
+
+.video-control {
+    width: 100%;
+    height: 70px;
+    background-color: rgb(49, 53, 66);
+    padding-left: 10px;
+    padding-right: 10px;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+.video-control .icon-left {
+    float: left;
+    width: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-control .icon-right {
+    float: right;
+    width: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-control .start-end i {
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+.video-control .start-end i.play {
+    background-image: url(/mflive/img/start-play.png);
+}
+
+.video-control .start-end i.pause{
+    background-image: url(/mflive/img/pause-play.png);
+}
+
+.video-control .reload i{
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    background-image: url(/mflive/img/reload-play.png);
+}
+
+.video-control .volume {
+    font-size: 0;
+    position: relative;
+}
+.video-control .volume .speaker{
+    width: 25px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+.video-control .volume .speaker.little.more{
+    background-image: url(/mflive/img/volume.png);
+}
+.video-control .volume .speaker.little{
+    background-image: url(/mflive/img/volume-1.png);
+}
+.video-control .volume .speaker{
+    background-image: url(/mflive/img/volume-0.png);
+}
+
+.video-control .volume .volume-wrap{
+    width: 37px;
+	height: 146px;
+	background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    bottom: 70px;
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+.video-control .volume .volume-control-bk{
+    position: absolute;
+    height: 122px;
+    width: 5px;
+    background-color: #000000;
+	border-radius: 2px;
+    bottom: 12px;
+    left: 16px;
+    opacity: 1;
+}
+.video-control .volume .volume-control-bk .volume-radio {
+    position: absolute;
+    bottom: 0;
+    left: -3px;
+    background-image: url(/mflive/img/radio.png);
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10;
+    cursor: pointer;
+    transform: translate3d(0, -90px, 0);
+}
+.video-control .volume .volume-control-bk .volume-active {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 5px;
+    height: 96px;
+    background-color: #366bee;
+	border-radius: 2px;
+}
+
+.video-control .danmu {
+    position: relative;
+    cursor: pointer;
+    width: 95px;
+}
+
+.video-control .danmu i {
+    background-size: 100%;
+    display: inline-block;
+    width: 63px;
+    height: 57px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.video-control .danmu .off {
+    background-image: url(/mflive/img/danmu-off.png);
+}
+
+.video-control .danmu .on {
+    background-image: url(/mflive/img/danmu-on.png);
+}
+
+.video-control .danmu.on .radio {
+    left: 0px;
+}
+
+.video-control .danmu.off .bk {
+    background-color: rgb(213, 204, 80);
+    color: rgb(238, 238, 238);
+    text-align: left;
+}
+
+.video-control .danmu.off .radio {
+    left: 40px;
+}
+
+.video-control .change-source {
+    position: relative;
+}
+
+.video-control .change-source .show{
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+    width: 67px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 17px;
+	font-family: MicrosoftYaHei;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 3px;
+	color: #dce4f6;
+}
+.video-control .change-source .show:active{
+	background-color: #366bee;
+}
+
+.video-control .change-source .select-list {
+    position: absolute;
+    bottom: 70px;
+    left: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 68px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.video-control .change-source .select-list li{
+    position: relative;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    font-family: MicrosoftYaHeiLight;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+}
+.video-control .change-source .select-list li:not(:first-child)::before {
+    width: 61px;
+    height: 1px;
+    background-color: #343945;
+    position: absolute;
+    left: 3px;
+    top: 0;
+    content: "";
+}
+
+.video-control .change-source .select-list li:hover{
+    background-color: #333;
+    color: #366bee;
+}
+
+.video-control .danmu-input {
+    width: 320px;
+}
+.video-control .danmu-input .wrap{
+    flex: 1;
+	height: 35px;
+	background-color: #000000;
+	border-radius: 17px;
+}
+
+.video-control .danmu-input .wrap .content-edit{
+    color: #c3c3c3;
+    width: 202px;
+    height: 35px;
+    font-family: MicrosoftYaHei;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 26px;
+    letter-spacing: 0px;
+    background-color: #000000;
+    outline: none;
+    box-shadow: none;
+    border: 0;
+    margin-left: 17px;
+}
+
+.video-control .danmu-input .wrap .content-edit::-webkit-input-placeholder {
+    color: rgba(113, 116, 123, 0.67);
+}
+
+.video-control .danmu-input .wrap i {
+    background-size: 100%;
+    display: inline-flex;
+    width: 76px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: right;
+}
+
+.video-control .danmu-input .wrap .submit {
+    background-image: url(/mflive/img/send_normal.png)
+}
+
+.video-control .danmu-input .wrap .submit:hover {
+    background-image: url(/mflive/img/send_hover.png)
+}
+.video-control .danmu-input .wrap .submit:active {
+    background-image: url(/mflive/img/send_click.png)
+}
+
+.video-control .danmu-input .wrap .submit.disable {
+    background-image: url(/mflive/img/send_disable.png)
+}
+
+.title {
+    height: 70px;
+    width: 100%;
+    background-color: #23262d;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.title .big {
+    width: 312px;
+	height: 40px;
+	font-family: MicrosoftYaHeiLight;
+	font-size: 30px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 40px;
+	letter-spacing: 0px;
+    color: #ffffff;
+    float: left;
+}
+
+.title .small {
+    width: 160px;
+	height: 40px;
+	font-family: MicrosoftYaHei;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 40px;
+	letter-spacing: 0px;
+	color: #9da1ab;
+    float: left;
+}

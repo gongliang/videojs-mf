@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>永恒魔法-黄金争霸赛-直播</title>
+    <link rel="stylesheet" href="./css/video-js.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div id="app">
+        <div class="title">
+            <div class="big">首届黄金争霸赛16进8</div>
+            <div class="small">5月20日15:00-16:00</div>
+        </div>
+        <div class="player">
+            <video id="video-player" width=600 height=300 class="video-js vjs-big-play-centered vjs-default-skin" src="blob:http://videojs.github.io/f4548b56-1448-4277-8499-3dd0b9411f5b" controls>
+            </video>
+        </div>
+        <div class="video-control">
+            <div class="start-end icon-left">
+                <i class="play"></i>
+            </div>
+            <div class="change-source icon-left">
+                <span class="show">高清</span>
+                <ul class="select-list">
+                    <li>高清</li>
+                    <li>超清</li>
+                </ul>
+            </div>
+            <div class="volume icon-left">
+                <span class="speaker little more off"></span>
+                <div class="volume-wrap">
+                    <div class="volume-control-bk">
+                        <span class="volume-radio"></span>
+                        <div class="volume-active"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="reload icon-left">
+                <i></i>
+            </div>
+            
+            <div class="danmu icon-right on">
+                <i class="off"></i>
+            </div>
+            <div class="danmu-input icon-right">
+                <div class="wrap">
+                    <input class="content-edit" id="send-danmu-text" maxlength="30" placeholder="您可以在这输入弹幕吐槽哦"/>
+                    <i class="submit"></i>
+                </div>
+            </div>
+        </div>
+        <div class="danmu-wrap"></div>
+    </div>
+    
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/video.js"></script>
+    <script src="./js/videojs-contrib-hls.min.js"></script>
+    <script src="./js/index.js"></script>
+    
+</body>
+</html>
